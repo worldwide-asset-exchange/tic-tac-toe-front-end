@@ -1,0 +1,15 @@
+{
+    "pageNotFound": {
+        "title": "Page Not Found",
+        "content": "Page Not Found",
+        "page-not-found": "Page Not Found",
+        "intro": "The page you are looking for does not exist.\nTrying again or go back to WAX DeFi homepage.",
+        "go-to-home-page": "Go to homepage"
+    },
+    "home": {
+        "play game": "PLAY GAME",
+        "game list": "GAME LIST",
+        "new game": "New Game"
+    },
+    "loading": "Loading..."
+}
