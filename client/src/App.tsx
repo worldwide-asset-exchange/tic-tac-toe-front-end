@@ -7,6 +7,8 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { MainContainer } from 'components/MainContainer';
 import { useAppSlice } from 'components/Navigation/slice';
 import { _URL } from 'config/constant';
+import { GamePage } from 'pages/Game/Loadable';
+import { GameListPage } from 'pages/GameList/Loadable';
 import { HomePage } from 'pages/HomePage/Loadable';
 import { PageNotFound } from 'pages/PageNotFound/Loadable';
 import { GlobalStyle } from 'theme/global-styles';
@@ -35,6 +37,8 @@ function App() {
             <MainContainer>
                 <Routes>
                     <Route path={_URL.HomePage} element={<HomePage />} />
+                    <Route path={`${_URL.Game}`} element={<GameListPage />} />
+                    <Route path={`${_URL.Game}/:id`} element={<GamePage />} />
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </MainContainer>

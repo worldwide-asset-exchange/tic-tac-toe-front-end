@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import styled from 'styled-components';
 import { Colors } from 'theme/StyleConstants';
 
-export const CustomButtonLayout = styled(Button)`
+const baseButtonStyles = `
     font-family: 'Titillium Web', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
@@ -11,7 +11,6 @@ export const CustomButtonLayout = styled(Button)`
     border-color: ${Colors.black};
     border-width: 1.5px;
     filter: drop-shadow(0px 1.394px 0px #000) drop-shadow(0px 4.881px 1.394px rgba(0, 0, 0, 0.25));
-    background: ${Colors.orange};
     overflow: hidden;
     transform: skewX(-6deg);
 
@@ -20,10 +19,10 @@ export const CustomButtonLayout = styled(Button)`
         text-align: center;
         text-shadow: 0px 2.789px 0px ${Colors.darkCharcoal};
         font-family: Titillium Web;
-        font-size: 34px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 900;
-        line-height: 48px;
+        line-height: 24px;
     }
 
     .corner {
@@ -34,32 +33,52 @@ export const CustomButtonLayout = styled(Button)`
         height: 18px;
         transform: rotate(-43.361deg);
         flex-shrink: 0;
-        background: #fff;
+        background: ${Colors.white};
+    }
+
+    .top, .bottom {
+        content: '';
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 12%;
+        opacity: 0.7;
+        z-index: -1;
     }
 
     .top {
-        content: '';
-        position: absolute;
         bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 12%;
-        opacity: 0.7;
         background: ${Colors.black};
         mix-blend-mode: overlay;
-        z-index: -1;
     }
 
     .bottom {
-        content: '';
-        position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 12%;
-        opacity: 0.7;
         background: ${Colors.white};
         mix-blend-mode: overlay;
-        z-index: -1;
+    }
+`;
+
+export const CustomButtonLayout = styled(Button)`
+    ${baseButtonStyles}
+    background: ${Colors.orange};
+`;
+
+export const PrimaryButtonLayout = styled(Button)`
+    ${baseButtonStyles}
+    background: ${Colors.deepSkyBlue};
+`;
+
+export const SecondaryButtonLayout = styled(Button)`
+    ${baseButtonStyles}
+    background: ${Colors.white};
+
+    span {
+        text-shadow: 0px 2.789px 0px ${Colors.darkCharcoal}, 1px 0px 0px ${Colors.darkCharcoal},
+            0px -1px 0px ${Colors.darkCharcoal}, -1px 0px 0px ${Colors.darkCharcoal};
+    }
+
+    .corner {
+        background: ${Colors.paleOliveGreen};
     }
 `;

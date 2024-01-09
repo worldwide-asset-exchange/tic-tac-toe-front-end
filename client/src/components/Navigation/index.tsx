@@ -2,7 +2,7 @@ import { NavigationLayout } from './Navigation.styled';
 import { useAppSlice } from './slice';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import WaxLogo from 'assets/wax_logo.svg';
 import { CustomButton } from 'components/Button';
@@ -11,6 +11,8 @@ import { _URL } from 'config/constant';
 
 export const Navigation = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const currentPath = location?.pathname?.split('/')?.[1];
     const { actions: appActions } = useAppSlice();
     const wcwData = useSelector(selectWcwData);
     const isConnectingWallet = useSelector(selectLoadingWcw);
@@ -24,15 +26,20 @@ export const Navigation = () => {
     };
 
     const renderWalletInfor = () => {
+        //Not render wallet inform in home page
+        if (!currentPath || currentPath === _URL.HomePage.slice(1)) {
+            return null;
+        }
+
         if (!wcwData?.account) {
             return (
                 <CustomButton onClick={handleLogin} loading={isConnectingWallet}>
                     Login
                 </CustomButton>
             );
-        } else {
-            return <CustomButton onClick={handleLogout}>Logout {wcwData?.account}</CustomButton>;
         }
+
+        return <CustomButton onClick={handleLogout}>Logout {wcwData?.account}</CustomButton>;
     };
 
     return (
