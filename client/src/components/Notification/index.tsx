@@ -63,3 +63,15 @@ export const WcwNotification = async (
             });
     }
 };
+
+export const WcwNotificationSuccess = (message: ReactNode) => {
+    return WcwNotification(NotificationType.SUCCESS, message);
+};
+
+export const WcwNotificationError = (message: ReactNode) => {
+    return WcwNotification(NotificationType.ERROR, message);
+};
+
+export const WcwNotificationInfor = (message: ReactNode) => {
+    return WcwNotification(NotificationType.ALERT, message);
+};

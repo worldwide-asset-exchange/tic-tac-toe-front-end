@@ -48,6 +48,23 @@ input[data-autocompleted] {
   visibility: hidden;
 }
 
+&::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+&::-webkit-scrollbar {
+  background-color: rgb(247, 142, 30, 0.8);
+  width: 7px;
+  height: 7px;
+}
+
+&::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f7221e;
+}
+
 @media (max-width: ${ScreenSizes.small}) {
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -55,7 +72,7 @@ input[data-autocompleted] {
   }
 
   &::-webkit-scrollbar {
-    background-color: rgba(125, 112, 246, 0.3);
+    background-color: rgb(247, 142, 30, 0.8);
     width: 3px;
     height: 3px;
   }
@@ -63,7 +80,7 @@ input[data-autocompleted] {
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #978cf7;
+    background-color: #f7221e;
   }
 }
 `;

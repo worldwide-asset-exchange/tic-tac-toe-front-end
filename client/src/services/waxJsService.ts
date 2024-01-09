@@ -65,3 +65,12 @@ export async function buyCpu(
         }),
     ]);
 }
+
+export async function CreateNewGame(host: string, challenger: string) {
+    return sendActions([
+        createAction(host, 'tictactoe', 'create', {
+            challenger,
+            host,
+        }),
+    ]);
+}

@@ -27,7 +27,6 @@ export function* connectWcw() {
             }
         }
     } catch (error) {
-        console.log('tam er', error);
         yield put(actions.wcwDisConnected());
     }
 }

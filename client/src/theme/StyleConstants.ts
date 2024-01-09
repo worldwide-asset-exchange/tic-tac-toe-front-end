@@ -30,6 +30,7 @@ export enum Colors {
     text_light = '#C0C0C0',
 
     orange = '#F78E1E',
+    red = '#f7221e',
     accentBlue = '#3A278C',
     neutralWhite = '#FEFDFB',
     darkCharcoal = '#080206',

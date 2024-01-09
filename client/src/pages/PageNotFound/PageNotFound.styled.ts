@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Colors, ScreenSizes } from 'theme/StyleConstants';
+import { ScreenSizes } from 'theme/StyleConstants';
 
 export const PageNotFoundLayout = styled.div`
     width: 100%;

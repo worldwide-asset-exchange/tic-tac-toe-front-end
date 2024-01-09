@@ -18,10 +18,6 @@ export const GameLayout = styled.div`
     }
 
     @media (max-width: ${ScreenSizes.small}) {
-        .homepage-img-1 {
-            width: 100%;
-            height: auto;
-        }
     }
 
     @media (max-width: ${ScreenSizes.mobile}) {
