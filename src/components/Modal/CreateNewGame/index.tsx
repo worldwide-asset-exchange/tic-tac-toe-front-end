@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Space } from 'antd';
@@ -8,6 +9,7 @@ import CloseIcon from 'assets/close_icon.svg';
 import { SecondaryButton } from 'components/Button';
 import { CustomInput } from 'components/Input';
 import { selectWcwData } from 'components/Navigation/slice/selectors';
+import { _URL } from 'config/constant';
 import { translations } from 'locales/translations';
 import { GameList } from 'services/game';
 import { CreateNewGame } from 'services/waxJsService';
@@ -37,7 +39,7 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
     const [isCreate, setIsCreate] = useState<boolean>(false);
     const [isValidToCreate, setIsValidToCreate] = useState<boolean>(true);
 
-    const [infors, setInfors] = useState<string[]>([]);
+    const [infors, setInfors] = useState<string>('');
     const [errors, setErrors] = useState<string[]>([]);
 
     useEffect(() => {
@@ -60,7 +62,7 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
         setIsValidToCreate(true);
         setIsCreate(false);
         setErrors([]);
-        setInfors([]);
+        setInfors('');
     };
 
     const onChange = (e: RadioChangeEvent) => {
@@ -75,7 +77,7 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
         }
 
         setErrors([]);
-        setInfors([]);
+        setInfors('');
         setIsCreate(true);
         setIsValidToCreate(true);
 
@@ -85,18 +87,14 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
 
             const createNewGame = await CreateNewGame(host, challengerUser);
             if (createNewGame?.transaction_id) {
-                console.log('tam createNewGame?.transaction_id', createNewGame?.transaction_id);
                 //add somedelay for blockchain update
                 await delay(2000);
                 const gameLists = await GameList();
-                console.log('tam gameLists', gameLists);
                 if (gameLists?.length) {
                     const gameDetail = gameLists?.find(
                         (game: any) => game?.host === host && game?.challenger === challengerUser,
                     );
-                    setInfors([
-                        t(translations['create new game']['your game id']) + gameDetail?.id,
-                    ]);
+                    setInfors(gameDetail?.id);
                 } else {
                     setErrors([t(translations['create new game']['game is creating'])]);
                 }
@@ -111,11 +109,13 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
 
     const renderInforMsg = () => {
         let layout: any[] = [];
-        if (infors?.length) {
-            for (const infor of infors) {
-                layout.push(<div>{infor}</div>);
-            }
-            return <div className="modal-div-8">{layout}</div>;
+        if (infors) {
+            return (
+                <div className="modal-div-8 infor">
+                    {t(translations['create new game']['your game id'])}
+                    <Link to={`${_URL.Game}/${infors}`}>{infors}</Link>
+                </div>
+            );
         }
 
         if (errors?.length) {

@@ -80,6 +80,7 @@ export const GameLayout = styled.div`
     .game-board {
         width: 688px;
         height: 688px;
+        position: relative;
 
         border-radius: 16px;
         background: rgba(58, 39, 140, 0.4);
@@ -90,6 +91,12 @@ export const GameLayout = styled.div`
         padding: 32px;
         grid-gap: 12px;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .game-board-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 
     .game-img {

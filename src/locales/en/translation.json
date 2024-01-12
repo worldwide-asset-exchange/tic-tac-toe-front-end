@@ -45,5 +45,6 @@
     "loading": "Loading...",
     "no game found": "No Game Found",
     "require login": "Require Login",
-    "turn": "Turn"
+    "turn": "Turn",
+    "winner": "winner"
 }

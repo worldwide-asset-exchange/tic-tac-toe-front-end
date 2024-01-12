@@ -50,9 +50,12 @@ export const delay = (ms: number): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-export const decodeTo3x3Array = (encodedString: string): number[][] => {
+export const decodeTo3x3Array = (encodedString?: string): number[][] => {
     // Initialize result array for holding the decoded 3x3 matrix
     const result: number[][] = [];
+    if (!encodedString) {
+        return result;
+    }
     // Start decoding from the beginning of the encoded string
     let index = 0;
 

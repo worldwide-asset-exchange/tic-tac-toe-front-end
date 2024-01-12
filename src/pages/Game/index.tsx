@@ -1,6 +1,6 @@
 import { GameLayout } from './Game.styled';
 
-import { useEffect, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -42,6 +42,13 @@ export const GamePage = (): JSX.Element => {
 
     useEffect(() => {
         loadGame();
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            loadGame();
+        }, 3000);
+        return () => clearInterval(interval);
     }, []);
 
     const loadGame = async () => {
@@ -89,21 +96,35 @@ export const GamePage = (): JSX.Element => {
                         src={Empty}
                         className={`game-img ${IsActiveCellBoard ? 'active' : ''}`}
                         alt="empty icon"
-                        key={id}
+                        key={`${key?.[0]}-${key?.[1]}`}
                         onClick={() => move(id, key)}
                     />
                 );
             case 1:
-                return <img src={State0} className="game-img" alt="empty icon" key={id} />;
+                return (
+                    <img
+                        src={State0}
+                        className="game-img"
+                        alt="empty icon"
+                        key={`${key?.[0]}-${key?.[1]}`}
+                    />
+                );
             case 2:
-                return <img src={StateX} className="game-img" alt="empty icon" key={id} />;
+                return (
+                    <img
+                        src={StateX}
+                        className="game-img"
+                        alt="empty icon"
+                        key={`${key?.[0]}-${key?.[1]}`}
+                    />
+                );
             default:
                 return (
                     <img
                         src={Empty}
                         className={`game-img ${IsActiveCellBoard ? 'active' : ''}`}
                         alt="empty icon"
-                        key={id}
+                        key={`${key?.[0]}-${key?.[1]}`}
                         onClick={() => move(id, key)}
                     />
                 );
@@ -127,11 +148,8 @@ export const GamePage = (): JSX.Element => {
         }
     };
 
-    const gameMatrix = () => {
+    const gameMatrix = useMemo(() => {
         const result: any[] = [];
-        if (!dataGame?.board) {
-            return result;
-        }
 
         const decodedMatrix = decodeTo3x3Array(dataGame?.board);
 
@@ -142,15 +160,34 @@ export const GamePage = (): JSX.Element => {
         }
 
         return result;
-    };
-
-    if (isLoadGame) {
-        return <GameLayout>{t(translations.loading)}</GameLayout>;
-    }
+    }, [dataGame]);
 
     if (!id || !isValidGame || !dataGame?.board) {
         return <GameLayout>{t(translations['no game found'])}</GameLayout>;
     }
+
+    const renderPlayerInfor = (player: 'host' | 'challenger') => {
+        if (dataGame?.winner === 'none') {
+            // Show 'turn' text if it's the player's turn
+            if (dataGame?.turn === dataGame?.[player]) {
+                return <div className="game-div-3">{t(translations.turn)}</div>;
+            }
+            return null;
+        } else if (dataGame?.winner === dataGame?.[player]) {
+            // Show 'winner' text if the player is the winner
+            return <div className="game-div-3">{t(translations.winner)}</div>;
+        }
+        // Return null in all other cases
+        return null;
+    };
+
+    const UserImages: FC<{ player: 'host' | 'challenger' }> = React.memo(({ player }) => {
+        if (player === 'host') {
+            return <img src={User1} alt="user" className="game-img-1" />;
+        }
+
+        return <img src={User2} alt="user" className="game-img-1" />;
+    });
 
     return (
         <GameLayout>
@@ -162,19 +199,18 @@ export const GamePage = (): JSX.Element => {
             />
             <div className="game-container">
                 <div className="game-div-1">
-                    <img src={User1} alt="user" className="game-img-1" />
+                    <UserImages player={'host'} />
                     <div className="game-div-2">{dataGame?.host}</div>
-                    {dataGame?.turn === dataGame?.host && (
-                        <div className="game-div-3">{t(translations.turn)}</div>
-                    )}
+                    {renderPlayerInfor('host')}
                 </div>
-                <div className="game-board">{gameMatrix()}</div>
+                <div className="game-board">
+                    {isLoadGame && <div className="game-board-loading">...</div>}
+                    {gameMatrix}
+                </div>
                 <div className="game-div-1">
-                    <img src={User2} alt="user" className="game-img-1" />
+                    <UserImages player={'challenger'} />
                     <div className="game-div-2 right">{dataGame?.challenger}</div>
-                    {dataGame?.turn === dataGame?.challenger && (
-                        <div className="game-div-3">{t(translations.turn)}</div>
-                    )}
+                    {renderPlayerInfor('challenger')}
                 </div>
             </div>
         </GameLayout>

@@ -92,4 +92,9 @@ export const ModalLayout = styled(Modal)`
     .modal-div-8.error {
         color: ${Colors.red};
     }
+
+    .modal-div-8.infor {
+        flex-direction: row;
+        gap: 16px;
+    }
 `;
