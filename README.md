@@ -9,6 +9,8 @@ Dive into the timeless classic of Tic Tac Toe, reimagined with the power of Vite
 
 - **Vite**: Elevate your development workflow with Vite, a toolset tailored for swift and efficient web project creation.
 - **WAXP Blockchain**: Embrace the decentralized ethos with the WAXP blockchain, fostering secure, transparent smart contract interactions for gaming experiences.
+(For more information about smart contract, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe)
+  
 
 ## 🚀 Getting Started
 
