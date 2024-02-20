@@ -5,11 +5,43 @@
 
 Dive into the timeless classic of Tic Tac Toe, reimagined with the power of Vite for frontend development and the WAXP blockchain for decentralized gameplay. Experience a secure, transparent, and interactive gaming environment where each move resonates on the blockchain.
 
+### How To Play
+Tic Tac Toe is a classic game enjoyed by people of all ages. It's simple to learn but can be surprisingly strategic. Here's a step-by-step guide on how to play:
+
+1. **Setup**: Click `Play Game`
+<img src="./src/assets/screen_shot/Splash.png"/>
+And choose `New Game`
+<img src="./src/assets/screen_shot/New Game.png"/>
+
+2. **Players**: Tic Tac Toe is typically played by two players. One player is assigned "X" and the other "O".
+<img src="./src/assets/screen_shot/New Game Popup.png"/>
+
+3. **Objective**: The goal is to be the first to create a row of three of your marks (X's or O's) either horizontally, vertically, or diagonally.
+
+4. **Gameplay**: Players take turns placing their mark (X or O) in an empty square on the grid.
+
+5. **Turns**: The player assigned "X" usually goes first, followed by the player assigned "O". Players continue taking turns until one player wins or the grid is full (resulting in a tie).
+<img src="./src/assets/screen_shot/Playing Game.png"/>
+
+6. **Winning**: A player wins the game if they successfully create a row of three of their marks either horizontally, vertically, or diagonally. If a player achieves this, they declare "Tic Tac Toe!" and are declared the winner.
+
+7. **Ties**: If all squares are filled without either player achieving three in a row, the game ends in a tie.
+<img src="./src/assets/screen_shot/Winner.png"/>
+
+8. **Rematch**: Players can easily start a new game and beginning again.
+
+
+### Frontend Tutorial
+For more information, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe-front-end
+
+### Smart Contract Tutorial
+
+For more information about smart contract, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe
+
 ## 🛠️ Technologies Utilized
 
 - **Vite**: Elevate your development workflow with Vite, a toolset tailored for swift and efficient web project creation.
 - **WAXP Blockchain**: Embrace the decentralized ethos with the WAXP blockchain, fostering secure, transparent smart contract interactions for gaming experiences.
-(For more information about smart contract, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe)
   
 
 ## 🚀 Getting Started
