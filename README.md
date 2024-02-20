@@ -3,7 +3,13 @@
 ## 🎮 Overview
 ![Preview Image](./preview_meta_data.png)
 
-Dive into the timeless classic of Tic Tac Toe, reimagined with the power of Vite for frontend development and the WAXP blockchain for decentralized gameplay. Experience a secure, transparent, and interactive gaming environment where each move resonates on the blockchain.
+This tic-tac-toe contract provides an example of building a game on WAX, complete with secure use of random values to determine game outcomes.
+
+This will guide you how to make the Tictactoe game contract which run on Wax blockchain. Logic of the tictactoe game follow the eosio sample at Tic-tac-toe Game EOS tutorial, but we'll add more logic that support randomize the first turner and random game move if playing with bot.
+
+### [Frontend Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe-front-end)
+
+### [Smart Contract Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe)
 
 ### How To Play
 Tic Tac Toe is a classic game enjoyed by people of all ages. It's simple to learn but can be surprisingly strategic. Here's a step-by-step guide on how to play:
@@ -30,10 +36,6 @@ And choose `New Game`
 
 8. **Rematch**: Players can easily start a new game and beginning again.
 
-
-### [Frontend Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe-front-end)
-
-### [Smart Contract Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe)
 
 ## 🛠️ Technologies Utilized
 
