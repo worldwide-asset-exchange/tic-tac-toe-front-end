@@ -31,12 +31,9 @@ And choose `New Game`
 8. **Rematch**: Players can easily start a new game and beginning again.
 
 
-### Frontend Tutorial
-For more information, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe-front-end
+### [Frontend Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe-front-end)
 
-### Smart Contract Tutorial
-
-For more information about smart contract, Please refer: https://github.com/worldwide-asset-exchange/tic-tac-toe
+### [Smart Contract Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe)
 
 ## 🛠️ Technologies Utilized
 
