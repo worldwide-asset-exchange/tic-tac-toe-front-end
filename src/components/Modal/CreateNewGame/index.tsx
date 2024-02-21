@@ -91,7 +91,7 @@ export const CreateNewGameModal = ({ isShow, onSubmit }: CreateNewGameProps) => 
                 await delay(2000);
                 const gameLists = await GameList();
                 if (gameLists?.length) {
-                    const gameDetail = gameLists?.find(
+                    const gameDetail: any = gameLists?.find(
                         (game: any) => game?.host === host && game?.challenger === challengerUser,
                     );
                     setInfors(gameDetail?.id);
