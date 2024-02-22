@@ -25,6 +25,7 @@
         "@waxio/waxjs": "1.7.1",
         "antd": "^5.2.0",
         "axios": "^1.4.0",
+        "buffer": "^6.0.3",
         "ethers": "^6.7.1",
         "fontfaceobserver": "^2.3.0",
         "i18next": "^23.4.4",
@@ -42,6 +43,7 @@
     "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^4.1.1",
         "@types/fontfaceobserver": "^2.1.0",
+        "@types/node": "^20.11.19",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "@types/styled-components": "5.1.20",
