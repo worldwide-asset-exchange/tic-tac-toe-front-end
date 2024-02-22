@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 
 import App from 'App';
 import 'antd/dist/reset.css';
+import { Buffer as B } from 'buffer';
 import FontFaceObserver from 'fontfaceobserver';
 import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'theme/ThemeProvider';
@@ -19,7 +20,9 @@ const openSansObserver = new FontFaceObserver('Titillium Web', {});
 openSansObserver.load().then(() => {
     document.body.classList.add('fontLoaded');
 });
-
+if (!window.Buffer) {
+    window.Buffer = B;
+}
 const store = configureAppStore();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
