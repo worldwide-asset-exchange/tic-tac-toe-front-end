@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
-        "@waxio/waxjs": "1.1.0",
+        "@waxio/waxjs": "1.7.1",
         "antd": "^5.2.0",
         "axios": "^1.4.0",
         "ethers": "^6.7.1",
