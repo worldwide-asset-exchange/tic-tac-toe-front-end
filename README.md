@@ -12,7 +12,9 @@ This will guide you how to make the Tictactoe game contract which run on Wax blo
 ### [Smart Contract Tutorial](https://github.com/worldwide-asset-exchange/tic-tac-toe)
 
 ### How To Play
-Tic Tac Toe is a classic game enjoyed by people of all ages. It's simple to learn but can be surprisingly strategic. Here's a step-by-step guide on how to play:
+[Tic Tac Toe](https://tictactoe.wax.io/) is a classic game enjoyed by people of all ages. It's simple to learn but can be surprisingly strategic. Here's a step-by-step guide on how to play:
+
+Visit game: https://tictactoe.wax.io/
 
 1. **Setup**: Click `Play Game`
 <img src="./src/assets/screen_shot/Splash.png"/>
