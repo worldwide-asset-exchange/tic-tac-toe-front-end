@@ -36,6 +36,8 @@ And choose `New Game`
 7. **Ties**: If all squares are filled without either player achieving three in a row, the game ends in a tie.
 <img src="./src/assets/screen_shot/Winner.png"/>
 
+**Notes: The winner of the game will get a reward of 10 TIC token (the token issued by the game)**
+
 8. **Rematch**: Players can easily start a new game and beginning again.
 
 
