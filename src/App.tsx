@@ -23,7 +23,7 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Helmet
                 titleTemplate="Tic Tac Toe - %s"
                 defaultTitle="Tic Tac Toe"

@@ -1,7 +1,7 @@
 # Tic Tac Toe
 
 ## 🎮 Overview
-![Preview Image](./preview_meta_data.png)
+![Preview Image](./public/preview_meta_data.png)
 
 This tic-tac-toe contract provides an example of building a game on WAX, complete with secure use of random values to determine game outcomes.
 
